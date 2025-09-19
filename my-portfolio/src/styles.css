@@ -1,17 +1,17 @@
-/* Student Note: I'm completely changing the theme to a Super Mario style! */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* Student Note: This is the final and complete CSS for my portfolio. */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
-/* -------- New Mario-themed color variables -------- */
+/* -------- Mario-themed color variables -------- */
 :root {
-  --sky-blue: #5c94fc;       /* Mario's classic sky blue */
-  --ground-brown: #e76e00;  /* The orange-brown ground color */
-  --ground-top: #fcd000;    /* The yellow top of the ground blocks */
-  --mario-red: #e52521;      /* Mario's red for buttons and accents */
-  --text-dark: #1d1d1f;      /* Dark text for readability */
-  --text-light: #ffffff;     /* White text */
-  --cloud-white: #ffffff;    /* White for content blocks */
-  --block-border: #000000;   /* Black border for that pixelated feel */
-  --header-bg: #1d1d1f;      /* Keeping the header black as requested */
+  --sky-blue: #5c94fc;
+  --ground-brown: #e76e00;
+  --ground-top: #fcd000;
+  --mario-red: #e52521;
+  --text-dark: #1d1d1f;
+  --text-light: #ffffff;
+  --cloud-white: #ffffff;
+  --block-border: #000000;
+  --header-bg: #ffffff;
 }
 
 /* -------- Basic reset and body styles -------- */
@@ -19,64 +19,137 @@
   box-sizing: border-box;
 }
 
+/* Student Note: I'm setting the default font for the whole site to the pixel font here. */
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: var(--sky-blue); /* This makes the whole background the sky */
+  font-family: "Press Start 2P", cursive; /* This makes the pixel font the default */
+  background: var(--sky-blue);
   color: var(--text-dark);
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; /* Helps pixel fonts look sharp */
 }
 
-/* This makes sure the footer sticks to the bottom */
 .app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-
 main {
   flex-grow: 1;
 }
-
 .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 32px;
 }
 
-/* -------- Header (Keeping it the same black style) -------- */
+/* -------- Header -------- */
 .nav-wrap {
   background: var(--header-bg);
-  border-bottom: 2px solid #374151;
+  border-bottom: 2px solid var(--block-border);
   position: sticky;
   top: 0;
   z-index: 40;
   padding: 16px 0;
 }
-/* ... all other nav styles remain the same from your last version ... */
-.nav { display: flex; align-items: center; justify-content: space-between; max-width: 100%; padding: 0 32px; margin: 0 auto; }
-.brand-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.brand-text { font-family: 'Press Start 2P', cursive; font-weight: 400; font-size: 16px; color: var(--text-light); animation: float 2s ease-in-out infinite; }
-.nav-links { list-style: none; display: flex; align-items: center; gap: 24px; margin: 0; padding: 0; }
-.nav-links a { font-family: 'Press Start 2P', cursive; font-size: 14px; text-decoration: none; color: #9ca3af; transition: transform 0.2s ease-in-out, color 0.2s ease-in-out; }
-.nav-links a:hover { color: var(--text-light); transform: translateY(-3px); }
-.nav-links .cta { padding: 10px 16px; border-radius: 8px; border: 1px solid #374151; color: var(--text-light); background: #374151; font-size: 14px; }
-.custom-logo { height: 40px; width: auto; }
-@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-5px); } 100% { transform: translateY(0px); } }
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  padding: 0 32px;
+  margin: 0 auto;
+}
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.brand-text {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-dark);
+  animation: float 2s ease-in-out infinite;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.nav-links a:hover {
+  color: var(--mario-red);
+  transform: translateY(-3px);
+}
+.nav-links .cta {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 3px solid var(--block-border);
+  color: var(--text-light);
+  background: var(--mario-red);
+  font-size: 14px;
+  box-shadow: 4px 4px 0px var(--block-border);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.nav-links .cta:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--block-border);
+}
+.custom-logo {
+  height: 40px;
+  width: auto;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 
+/* -------- Hero Section on Home page -------- */
+.hero {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding-top: 24px;
+}
+.hero-text {
+  flex: 1;
+}
+.hero-art {
+  width: 300px;
+}
 
 /* -------- Content Cards (Styled like clouds or info blocks) ☁️ -------- */
-.card, .project-card, .service-card, .contact-form, .panel {
+.card,
+.project-card,
+.service-card,
+.contact-form,
+.panel {
   background: var(--cloud-white);
   padding: 24px;
-  border-radius: 8px; /* Slightly rounded corners */
+  border-radius: 8px;
   border: 3px solid var(--block-border);
-  box-shadow: 6px 6px 0px var(--block-border); /* 2D shadow for a blocky feel */
+  box-shadow: 6px 6px 0px var(--block-border);
+  margin-top: 40px;
 }
 
 /* -------- Buttons (Styled with Mario Red) -------- */
-.button, .button.ghost {
-  font-family: 'Press Start 2P', cursive;
+.button,
+.button.ghost {
   font-size: 14px;
   padding: 12px 20px;
   border-radius: 8px;
@@ -93,40 +166,120 @@ main {
   background: var(--cloud-white);
   color: var(--text-dark);
 }
-.button:hover, .button.ghost:hover {
-  transform: translate(2px, 2px); /* Button press effect */
+.button:hover,
+.button.ghost:hover {
+  transform: translate(2px, 2px);
   box-shadow: 2px 2px 0px var(--block-border);
 }
-
-/* -------- Specific Page Adjustments -------- */
-.hero-text h1, h1 {
-  font-family: 'Press Start 2P', cursive;
+.hero-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
 }
-.lead, .sub {
-  color: #374151;
+
+/* -------- Page Headings and Text -------- */
+h1,
+h2 {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  cursor: pointer;
+}
+h1 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+h2 {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+h1:hover,
+h2:hover {
+  transform: translateY(-5px);
+  color: var(--mario-red);
+}
+p,
+.lead,
+.sub,
+span,
+li,
+a {
+  line-height: 1.8;
+  font-size: 14px;
+}
+.link {
+  color: var(--mario-red);
+  font-weight: bold;
+}
+
+/* -------- Power-Ups Section with pop-up animation -------- */
+.powerups-section {
+  text-align: center;
+  margin-top: 60px;
+}
+.powerups-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(150px, 1fr)
+  ); /* Wider blocks */
+  gap: 24px;
+  margin-top: 24px;
+}
+.powerup-block {
+  background: #fbd000;
+  padding: 20px 10px;
+  border-radius: 8px;
+  border: 3px solid var(--block-border);
+  box-shadow: 6px 6px 0px var(--block-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 11px; /* Slightly smaller font to fit long text */
+  color: var(--text-dark);
+  position: relative;
+}
+.powerup-block::after {
+  content: "⭐";
+  font-size: 30px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+.powerup-block:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -120%);
 }
 
 /* -------- Footer (Styled like the ground) 🧱 -------- */
 .site-footer {
   margin-top: 40px;
   padding: 0;
-  background: var(--ground-brown); /* The main brown color of the ground */
-  border-top: 10px solid var(--ground-top); /* The yellow top of the blocks */
-  height: 80px; /* Gives it a solid, blocky height */
+  background: var(--ground-brown);
+  border-top: 10px solid var(--ground-top);
+  height: 80px;
   color: var(--text-dark);
-  font-family: 'Press Start 2P', cursive;
   font-size: 12px;
 }
 .footer-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%; /* Make sure content uses the full height */
+  height: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 32px;
 }
 .footer-links a {
   color: var(--text-dark);
   text-decoration: none;
   margin-left: 20px;
+  transition: color 0.2s ease-in-out;
 }
 .footer-links a:hover {
   color: var(--text-light);

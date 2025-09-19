@@ -1,22 +1,45 @@
 // src/pages/Home.jsx
-// Home page is the landing page.
-// Includes welcome message, mission statement, and a link to About page.
-// Teacher required: button linking to About or other pages + optional mission statement.
 
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+// Student Note: I'm importing the new icons I need for my expanded skills list.
+import {
+  FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaJava, FaPhp, FaDatabase, FaPython, FaBug, FaGitAlt
+} from 'react-icons/fa';
+import { DiJqueryLogo } from "react-icons/di";
+import { SiCplusplus, SiC } from 'react-icons/si';
+import { VscSymbolStructure } from "react-icons/vsc";
+import { GiArtificialIntelligence } from "react-icons/gi";
+
+
+// Student Note: I'm adding my new skills (QA, jQuery, Python) to this list.
+const skills = [
+  { name: 'Java', icon: <FaJava size={40} color="#007396" /> },
+  { name: 'JavaScript', icon: <FaJsSquare size={40} color="#F7DF1E" /> },
+  { name: 'HTML5', icon: <FaHtml5 size={40} color="#E34F26" /> },
+  { name: 'CSS3', icon: <FaCss3Alt size={40} color="#1572B6" /> },
+  { name: 'React', icon: <FaReact size={40} color="#61DAFB" /> },
+  { name: 'SQL', icon: <FaDatabase size={40} color="#4479A1" /> },
+  { name: 'Python', icon: <FaPython size={40} color="#3776AB" /> },
+  { name: 'jQuery', icon: <DiJqueryLogo size={40} color="#0769AD" /> },
+  { name: 'PHP', icon: <FaPhp size={40} color="#777BB4" /> },
+  { name: 'C++', icon: <SiCplusplus size={40} color="#00599C" /> },
+  { name: 'C', icon: <SiC size={40} color="#A8B9CC" /> },
+  { name: 'Data Structures', icon: <VscSymbolStructure size={40} color="#555" /> },
+  { name: 'AI Engineering', icon: <GiArtificialIntelligence size={40} color="#00A67E" /> },
+  { name: 'QA Testing', icon: <FaBug size={40} color="#228B22" /> },
+  { name: 'Git', icon: <FaGitAlt size={40} color="#F05032" /> },
+];
 
 function Home() {
-  // If redirected from contact form, we show a message
   const location = useLocation();
   const message = location.state && location.state.message;
 
   return (
     <main className="container page home-page">
-      {/* Show toast message if redirected from contact form */}
       {message && <div className="toast">{message}</div>}
 
-      {/* Hero section: my intro */}
+      {/* Hero section */}
       <section className="hero">
         <div className="hero-text">
           <h1>Hello — I’m Saket.</h1>
@@ -25,16 +48,12 @@ function Home() {
             modern JavaScript, and thoughtful UX.
           </p>
           <div className="hero-actions">
-            {/* Button to About page */}
             <Link to="/about" className="button">About Me</Link>
-            {/* Button to resume */}
             <a href="/resume.pdf" className="button ghost" target="_blank" rel="noreferrer">
               Resume (PDF)
             </a>
           </div>
         </div>
-
-        {/* On the right side, just a featured project card (Apple-like minimal design) */}
         <div className="hero-art">
           <div className="card">
             <h3>Featured Project</h3>
@@ -45,13 +64,26 @@ function Home() {
       </section>
 
       {/* Mission statement */}
-      <section className="philosophy">
+      <section className="card">
         <h2>My Mission</h2>
         <p>
           To craft performant, maintainable web apps that prioritize clarity and
           accessibility. I enjoy simplifying complex problems and turning them
           into delightful interfaces.
         </p>
+      </section>
+
+      {/* Power-Ups Section */}
+      <section className="powerups-section">
+        <h2>Power-Ups</h2>
+        <div className="powerups-grid">
+          {skills.map(skill => (
+            <div key={skill.name} className="powerup-block">
+              {skill.icon}
+              <span>{skill.name}</span>
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   );
