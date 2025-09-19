@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-// Student Note: I'm importing the new icons I need for my expanded skills list.
+// Student Note: Importing all the icons I need for my skills list.
 import {
   FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaJava, FaPhp, FaDatabase, FaPython, FaBug, FaGitAlt
 } from 'react-icons/fa';
@@ -12,7 +12,7 @@ import { VscSymbolStructure } from "react-icons/vsc";
 import { GiArtificialIntelligence } from "react-icons/gi";
 
 
-// Student Note: I'm adding my new skills (QA, jQuery, Python) to this list.
+// Student Note: This is my list of skills.
 const skills = [
   { name: 'Java', icon: <FaJava size={40} color="#007396" /> },
   { name: 'JavaScript', icon: <FaJsSquare size={40} color="#F7DF1E" /> },
@@ -39,13 +39,12 @@ function Home() {
     <main className="container page home-page">
       {message && <div className="toast">{message}</div>}
 
-      {/* Hero section */}
+      {/* Student Note: Updated my hero section with the new text. */}
       <section className="hero">
         <div className="hero-text">
-          <h1>Hello — I’m Saket.</h1>
+          <h1>Hello — Saket here....</h1>
           <p className="lead">
-            I build clean, accessible web experiences. I focus on React,
-            modern JavaScript, and thoughtful UX.
+            “It works on my machine.”
           </p>
           <div className="hero-actions">
             <Link to="/about" className="button">About Me</Link>
@@ -63,13 +62,11 @@ function Home() {
         </div>
       </section>
 
-      {/* Mission statement */}
+      {/* Student Note: Updated my mission statement with the new paragraph. */}
       <section className="card">
         <h2>My Mission</h2>
         <p>
-          To craft performant, maintainable web apps that prioritize clarity and
-          accessibility. I enjoy simplifying complex problems and turning them
-          into delightful interfaces.
+          My mission is to use technology to solve real-world problems in smarter and more impactful ways. I aim to blend creativity with technical expertise to build solutions that make everyday life more efficient, accessible, and meaningful. For me, it’s not just about writing code — it’s about creating value, empowering people, and shaping a better digital future.
         </p>
       </section>
 

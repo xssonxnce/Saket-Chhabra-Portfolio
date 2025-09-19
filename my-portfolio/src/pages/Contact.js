@@ -72,14 +72,14 @@ function Contact() {
         <aside className="contact-info">
           <div className="panel">
             <h3>Contact Details</h3>
-            <p>Phone: +1 (000) 000-0000 (replace with your number)</p>
-            <p>Email: your.email@example.com (replace with your email)</p>
-            <p>Location: Toronto, Canada (update if needed)</p>
+            <p>Phone: +1 (647) 871-0009</p>
+            <p>Email: saketchhabra@gmail.com</p>
+            <p>Location: 750-yorkmills road, North York, ON, Canada (M3B 1W9)</p>
           </div>
 
           <div className="panel small">
             <h4>Quick Note</h4>
-            <p>The form stores messages to localStorage at <code>contacts</code>. You can export or inspect that to demonstrate functionality.</p>
+            <p>Thanks for visiting. </p>
           </div>
         </aside>
       </div>

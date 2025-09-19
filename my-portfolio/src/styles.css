@@ -18,16 +18,13 @@
 * {
   box-sizing: border-box;
 }
-
-/* Student Note: I'm setting the default font for the whole site to the pixel font here. */
 body {
   margin: 0;
-  font-family: "Press Start 2P", cursive; /* This makes the pixel font the default */
+  font-family: "Press Start 2P", cursive;
   background: var(--sky-blue);
   color: var(--text-dark);
-  -webkit-font-smoothing: antialiased; /* Helps pixel fonts look sharp */
+  -webkit-font-smoothing: antialiased;
 }
-
 .app {
   display: flex;
   flex-direction: column;
@@ -134,20 +131,15 @@ main {
 }
 
 /* -------- Content Cards (Styled like clouds or info blocks) ☁️ -------- */
-.card,
-.project-card,
-.service-card,
-.contact-form,
-.panel {
+.card {
   background: var(--cloud-white);
   padding: 24px;
   border-radius: 8px;
   border: 3px solid var(--block-border);
   box-shadow: 6px 6px 0px var(--block-border);
-  margin-top: 40px;
 }
 
-/* -------- Buttons (Styled with Mario Red) -------- */
+/* -------- Buttons -------- */
 .button,
 .button.ghost {
   font-size: 14px;
@@ -195,8 +187,8 @@ h2 {
 }
 h1:hover,
 h2:hover {
-  transform: translateY(-5px);
   color: var(--mario-red);
+  transform: translateY(-5px);
 }
 p,
 .lead,
@@ -212,17 +204,14 @@ a {
   font-weight: bold;
 }
 
-/* -------- Power-Ups Section with pop-up animation -------- */
+/* -------- Power-Ups Section -------- */
 .powerups-section {
   text-align: center;
   margin-top: 60px;
 }
 .powerups-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(150px, 1fr)
-  ); /* Wider blocks */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 24px;
   margin-top: 24px;
 }
@@ -237,7 +226,7 @@ a {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  font-size: 11px; /* Slightly smaller font to fit long text */
+  font-size: 11px;
   color: var(--text-dark);
   position: relative;
 }
@@ -256,31 +245,133 @@ a {
   transform: translate(-50%, -120%);
 }
 
-/* -------- Footer (Styled like the ground) 🧱 -------- */
+/* -------- NEW STYLES FOR PROJECTS PAGE -------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column on small screens */
+  gap: 30px;
+  margin-top: 30px;
+}
+/* On bigger screens, use 2 columns */
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr 1fr; /* 2 equal columns */
+  }
+}
+.project-card {
+  background: var(--cloud-white);
+  padding: 24px;
+  border-radius: 8px;
+  border: 3px solid var(--block-border);
+  box-shadow: 6px 6px 0px var(--block-border);
+}
+.project-card h3 {
+  font-size: 18px;
+  margin-top: 0;
+}
+.project-card .muted {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* -------- About Page Layout -------- */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-top: 40px;
+}
+@media (min-width: 768px) {
+  .about-layout {
+    grid-template-columns: 280px 1fr;
+    align-items: flex-start;
+  }
+}
+.about-sidebar .card {
+  padding: 10px;
+}
+.about-photo img {
+  width: 100%;
+  display: block;
+}
+.about-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.about-main-content .card {
+  margin-top: 0;
+}
+.timeline-section h2 {
+  color: var(--mario-red);
+}
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+.timeline-list li {
+  /* The font-family line has been removed */
+  font-size: 14px;
+  line-height: 1.7;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 12px;
+
+}
+.timeline-list li::before {
+  content: "▶";
+  font-size: 10px;
+  color: var(--mario-red);
+  position: absolute;
+  left: 0;
+  top: 6px;
+}
+.timeline-date {
+  font-weight: bold;
+}
+.resume-actions {
+  display: flex;
+  gap: 12px;
+  padding: 0;
+}
+.resume-actions.card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin-top: 0;
+}
+
+/* -------- Footer -------- */
 .site-footer {
   margin-top: 40px;
   padding: 0;
   background: var(--ground-brown);
   border-top: 10px solid var(--ground-top);
-  height: 80px;
+  min-height: 80px;
   color: var(--text-dark);
-  font-size: 12px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
 }
 .footer-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 32px;
+  width: 100%;
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
 }
 .footer-links a {
   color: var(--text-dark);
   text-decoration: none;
-  margin-left: 20px;
-  transition: color 0.2s ease-in-out;
+  font-size: 24px;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 .footer-links a:hover {
   color: var(--text-light);
+  transform: translateY(-3px);
 }
