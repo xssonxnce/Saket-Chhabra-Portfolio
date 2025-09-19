@@ -51,20 +51,20 @@ function About() {
             <h2>Timeline</h2>
             <ul className="timeline-list">
               <li>
-                <span className="timeline-date">2019–2023:</span><br/>
-                Bachelor’s in Computer Science & Engineering, Chitkara University
+                <span className="timeline-date">2021–2024:</span><br/>
+                Bachelor’s in Computer Applications, Chitkara University
               </li>
               <li>
-                <span className="timeline-date">2022:</span><br/>
+                <span className="timeline-date">2024:</span><br/>
                 Internship at KocharTech (Software Testing)
               </li>
               <li>
-                <span className="timeline-date">2023:</span><br/>
+                <span className="timeline-date">2024:</span><br/>
                 Offered full-time role at KocharTech
               </li>
               <li>
                 <span className="timeline-date">2025 (Present):</span><br/>
-                Software Engineering Technology – AI at Centennial College
+                Software Engineering Technology – Software Engineering: AI at Centennial College
               </li>
             </ul>
           </div>
