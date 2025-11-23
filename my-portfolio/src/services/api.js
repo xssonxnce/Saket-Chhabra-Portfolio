@@ -1,13 +1,18 @@
 // src/services/api.js
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+// DELETE THIS LINE:
+// const API_URL = 'http://localhost:5000/api';
+
+// USE THIS LINE (Make sure your Render link is correct):
+const API_URL = 'https://saket-chhabra-portfolio-api.onrender.com/api'; 
 
 const api = axios.create({
   baseURL: API_URL,
-  headers: { 'Content-Type': 'application/json' },
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
-
 // --- PROJECTS ---
 export const getProjects = () => api.get('/projects');
 export const getProjectById = (id) => api.get(`/projects/${id}`);
