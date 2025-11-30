@@ -1,11 +1,20 @@
-// src/components/NavBar.jsx
-// Top navigation bar with custom SVG logo and links to all pages.
-
+// src/components/NavBar.js
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
 
 function NavBar() {
+  const navigate = useNavigate();
+  // Check if our "fake" user is logged in
+  const user = localStorage.getItem('user');
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem('user');
+    navigate('/');
+    window.location.reload(); // Refresh page to update the menu
+  };
+
   return (
     <header className="nav-wrap">
       <nav className="nav container">
@@ -23,6 +32,21 @@ function NavBar() {
           <li><Link to="/about">About</Link></li>
           <li><Link to="/projects">Projects</Link></li>
           <li><Link to="/services">Services</Link></li>
+          
+          {/* LOGIC: If logged in, show Sign Out. If not, show Sign In/Up */}
+          {user ? (
+            <li>
+              {/* This 'a' tag ensures it looks exactly like your other links */}
+              <a href="/" onClick={handleLogout}>Sign Out</a>
+            </li>
+          ) : (
+            <>
+              <li><Link to="/login">Sign In</Link></li>
+              <li><Link to="/register">Sign Up</Link></li>
+            </>
+          )}
+
+          {/* Contact button stays as your CTA */}
           <li><Link to="/contact" className="cta">Contact</Link></li>
         </ul>
       </nav>
